@@ -50,7 +50,7 @@ class Migration(SchemaMigration):
         db.create_table('shop_product_keywords', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('product', models.ForeignKey(orm['shop.product'], null=False)),
-            ('keyword', models.ForeignKey(orm['core.keyword'], null=False))
+            ('keyword', models.ForeignKey(orm['generic.keyword'], null=False))
         ))
         db.create_unique('shop_product_keywords', ['product_id', 'keyword_id'])
 
@@ -291,7 +291,7 @@ class Migration(SchemaMigration):
 
 
     models = {
-        'core.keyword': {
+        'generic.keyword': {
             'Meta': {'object_name': 'Keyword'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slug': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
@@ -307,7 +307,7 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'in_footer': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'blank': 'True'}),
             'in_navigation': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
-            'keywords': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['core.Keyword']", 'symmetrical': 'False', 'blank': 'True'}),
+            'keywords': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['generic.Keyword']", 'symmetrical': 'False', 'blank': 'True'}),
             'login_required': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'blank': 'True'}),
             'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['pages.Page']"}),
             'publish_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
@@ -408,7 +408,7 @@ class Migration(SchemaMigration):
             'expiry_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'keywords': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['core.Keyword']", 'symmetrical': 'False', 'blank': 'True'}),
+            'keywords': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['generic.Keyword']", 'symmetrical': 'False', 'blank': 'True'}),
             'publish_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'sale_from': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'sale_id': ('django.db.models.fields.IntegerField', [], {'null': 'True'}),
